@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -23,8 +23,13 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Linphone from "./Linphone";
 
-const App: () => React$Node = () => {
+const App = () => {
+  useEffect(() => {
+    Linphone.startService();
+    console.log('starting service ...')
+  }, []);
   return (
     <>
       <StatusBar barStyle="dark-content" />
